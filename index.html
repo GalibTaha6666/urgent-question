@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Question</title>
+
+<style>
+
+body{
+    background:#e79aa5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+}
+
+.card{
+    background:white;
+    width:400px;
+    height:420px;
+    border-radius:25px;
+    text-align:center;
+    padding:40px;
+    position:relative;
+}
+
+h2{
+    margin-top:40px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#yes{
+    background:#ff2b8a;
+    color:white;
+    margin-top:40px;
+}
+
+#no{
+    background:#ddd;
+    position:absolute;
+    right:60px;
+    top:200px;
+}
+
+#message{
+    display:none;
+    font-size:22px;
+    color:#ff2b8a;
+    margin-top:60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>আমার সাথে কি এক কাপ কফি খাওয়া যায়?</h2>
+
+<button id="yes">Yes</button>
+<button id="no">No</button>
+
+<div id="message">
+    ❤️ Yaaay! একগুচ্ছ কাঠগোলাপ হাতে অপেক্ষা করবো! ❤️
+</div>
+
+</div>
+
+
+<script>
+
+let noButton = document.getElementById("no");
+
+noButton.addEventListener("mouseover", function(){
+
+    let x = Math.random() * 300;
+    let y = Math.random() * 300;
+
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+
+});
+
+document.getElementById("yes").onclick = function(){
+
+    document.querySelector("h2").style.display="none";
+    document.getElementById("yes").style.display="none";
+    document.getElementById("no").style.display="none";
+
+    document.getElementById("message").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
