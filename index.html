@@ -2,59 +2,72 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine Question</title>
+<title>Valentine Surprise</title>
 
 <style>
 
 body{
-    background:#e79aa5;
+    margin:0;
+    font-family:Arial;
+    background:#f5a3b7;
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
-    font-family:Arial;
 }
+
+/* card */
 
 .card{
     background:white;
-    width:400px;
-    height:420px;
+    width:420px;
+    height:460px;
     border-radius:25px;
     text-align:center;
-    padding:40px;
+    padding:30px;
     position:relative;
 }
 
-h2{
-    margin-top:40px;
+/* images */
+
+img{
+    width:200px;
+    margin-top:10px;
 }
+
+/* buttons */
 
 button{
     padding:12px 25px;
+    font-size:18px;
     border:none;
     border-radius:20px;
-    font-size:18px;
     cursor:pointer;
 }
 
 #yes{
     background:#ff2b8a;
     color:white;
-    margin-top:40px;
+    margin-top:20px;
 }
 
 #no{
     background:#ddd;
     position:absolute;
-    right:60px;
-    top:200px;
+    top:300px;
+    right:80px;
 }
 
-#message{
+/* second page */
+
+#secondPage{
     display:none;
+}
+
+.message{
     font-size:22px;
     color:#ff2b8a;
-    margin-top:60px;
+    margin-top:20px;
 }
 
 </style>
@@ -64,13 +77,37 @@ button{
 
 <div class="card">
 
-<h2>আমার সাথে কি এক কাপ কফি খাওয়া যায়?</h2>
+<!-- FIRST PAGE -->
 
-<button id="yes">Yes</button>
+<div id="firstPage">
+
+<h2>আমার সাথে কি এক কাপ কফি খাওয়া যায়? ❤️</h2>
+
+<img src="https://cdn-icons-png.flaticon.com/512/742/742751.png">
+
+<p>আমার কফিতে চিনি কম হবে। কারণ, মিষ্টি একটা মেয়ের সামনে বসে, বেশি মিষ্টি কফি খাওয়া এক ধরণের অপরাধ। ☕👩‍❤️‍👨</p>
+
+<button id="yes">Yes 💖</button>
 <button id="no">No</button>
 
-<div id="message">
-    ❤️ Yaaay! একগুচ্ছ কাঠগোলাপ হাতে অপেক্ষা করবো! ❤️
+</div>
+
+
+<!-- SECOND PAGE -->
+
+<div id="secondPage">
+
+<h2>Yaaay! You said YES! 🥰</h2>
+
+<img src="https://cdn-icons-png.flaticon.com/512/2584/2584606.png">
+
+<div class="message">
+You & Me Forever ❤️<br>
+Like these cute teddies 🧸💞
+</div>
+
+<p>একগুচ্ছ কাঠগোলাপ হাতে অপেক্ষা করবো। ☕💑</p>
+
 </div>
 
 </div>
@@ -78,25 +115,27 @@ button{
 
 <script>
 
-let noButton = document.getElementById("no");
+/* No button runs away */
 
-noButton.addEventListener("mouseover", function(){
+let noBtn = document.getElementById("no");
 
-    let x = Math.random() * 300;
-    let y = Math.random() * 300;
+noBtn.addEventListener("mouseover", function(){
 
-    noButton.style.left = x + "px";
-    noButton.style.top = y + "px";
+let x = Math.random()*300;
+let y = Math.random()*300;
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
 
 });
 
+
+/* Yes button shows second page */
+
 document.getElementById("yes").onclick = function(){
 
-    document.querySelector("h2").style.display="none";
-    document.getElementById("yes").style.display="none";
-    document.getElementById("no").style.display="none";
-
-    document.getElementById("message").style.display="block";
+document.getElementById("firstPage").style.display="none";
+document.getElementById("secondPage").style.display="block";
 
 }
 
